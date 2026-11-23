@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}باغ راز و نیاز حافظ | خوش آمدید{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-decoration">❋</div>
+    <div class="hero-content">
+        <div class="eyebrow">به خلوت شعر و معرفت خوش آمدید</div>
+        <h1>باغ راز و نیاز حافظ</h1>
+        <div class="gold-line"></div>
+        <p class="hero-verse">
+            بیا تا گل برافشانیم و می در ساغر اندازیم<br>
+            فلک را سقف بشکافیم و طرحی نو دراندازیم
+        </p>
+        <p class="hero-description">
+            لحظه‌ای از هیاهوی جهان فاصله بگیر،
+            نیتی در دل داشته باش و مهمان خلوت شاعرانه حافظ شو.
+        </p>
+        <a class="btn btn-gold" href="{{ url_for('profile') }}">
+            ورود به باغ و گرفتن فال
+            <span>←</span>
+        </a>
+        <div class="hero-note">✦ با نیتی پاک و دلی آرام ✦</div>
+    </div>
+</section>
+
+<section class="garden-intro">
+    <div class="intro-item">
+        <span>❋</span>
+        <h3>آرامش</h3>
+        <p>لحظه‌ای خلوت با خود و اندیشه</p>
+    </div>
+    <div class="intro-item">
+        <span>❈</span>
+        <h3>دیوان حافظ</h3>
+        <p>همنشینی با غزل‌های جاودانه</p>
+    </div>
+    <div class="intro-item">
+        <span>✦</span>
+        <h3>تعبیر فال</h3>
+        <p>نگاهی شاعرانه به نیت و خواسته تو</p>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#123c32">
+    <title>{% block title %}باغ راز و نیاز حافظ{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</head>
+<body>
+    <div class="top-pattern"></div>
+
+    <nav class="navbar">
+        <a class="brand" href="{{ url_for('home') }}">
+            <span class="brand-icon">❋</span>
+            <span>باغ راز و نیاز حافظ</span>
+        </a>
+        <a class="nav-link" href="{{ url_for('home') }}">صفحه نخست</a>
+    </nav>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="footer-ornament">❋ ✦ ❋</div>
+        <p>به جهان خرم از آنم که جهان خرم از اوست</p>
+        <span>به یاد خواجه شمس‌الدین محمد حافظ شیرازی</span>
+    </footer>
+</body>
+</html>

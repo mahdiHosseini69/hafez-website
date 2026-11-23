@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}مشخصات مهمان | باغ حافظ{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <span class="section-symbol">❋</span>
+    <h1>دفتر مهمانان باغ</h1>
+    <p>پیش از ورود به خلوت حافظ، خودت را معرفی کن.</p>
+</section>
+
+<div class="steps">
+    <span class="current">۱. مشخصات</span>
+    <span>۲. تأیید اطلاعات</span>
+    <span>۳. فال حافظ</span>
+</div>
+
+<section class="panel">
+    <h2>مشخصات شما</h2>
+    <p class="panel-description">موارد ستاره‌دار الزامی هستند.</p>
+
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <form method="post" action="{{ url_for('profile') }}">
+        <div class="form-grid">
+            <div class="field">
+                <label>نام و نام خانوادگی *</label>
+                <input name="name" required maxlength="100"
+                       value="{{ data.get('name', '') }}"
+                       placeholder="نام خود را بنویسید">
+            </div>
+
+            <div class="field">
+                <label>سن</label>
+                <input name="age" inputmode="numeric"
+                       value="{{ data.get('age', '') }}"
+                       placeholder="سن شما">
+            </div>
+
+            <div class="field">
+                <label>شماره تماس</label>
+                <input name="phone" inputmode="tel"
+                       value="{{ data.get('phone', '') }}"
+                       placeholder="شماره تماس">
+            </div>
+
+            <div class="field">
+                <label>شهر محل سکونت</label>
+                <input name="city"
+                       value="{{ data.get('city', '') }}"
+                       placeholder="نام شهر">
+            </div>
+
+            <div class="field full">
+                <label>شغل یا تحصیلات</label>
+                <input name="job"
+                       value="{{ data.get('job', '') }}"
+                       placeholder="شغل یا رشته تحصیلی">
+            </div>
+
+            <div class="field full">
+                <label>حرف دل شما</label>
+                <textarea name="notes"
+                          placeholder="اگر توضیحی دارید اینجا بنویسید...">{{ data.get('notes', '') }}</textarea>
+            </div>
+        </div>
+
+        <button class="btn btn-green" type="submit">
+            ثبت مشخصات و ادامه ←
+        </button>
+    </form>
+</section>
+{% endblock %}

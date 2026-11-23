@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}تأیید مشخصات | باغ حافظ{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <span class="section-symbol">❋</span>
+    <h1>خوش آمدی، {{ data.name }}</h1>
+    <p>اطلاعات ثبت‌شده را مرور کن و وارد خلوت حافظ شو.</p>
+</section>
+
+<div class="steps">
+    <span class="done">۱. مشخصات</span>
+    <span class="current">۲. تأیید اطلاعات</span>
+    <span>۳. فال حافظ</span>
+</div>
+
+<section class="panel">
+    <h2>دفتر مهمان</h2>
+    <div class="details-list">
+        {% for label, key in [
+            ('نام و نام خانوادگی', 'name'),
+            ('سن', 'age'),
+            ('شماره تماس', 'phone'),
+            ('شهر', 'city'),
+            ('شغل یا تحصیلات', 'job'),
+            ('توضیحات', 'notes')
+        ] %}
+        <div class="detail-row">
+            <span>{{ label }}</span>
+            <strong>{{ data.get(key) or 'ثبت نشده' }}</strong>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="actions">
+        <a class="btn btn-secondary" href="{{ url_for('profile') }}">ویرایش اطلاعات</a>
+        <a class="btn btn-gold" href="{{ url_for('hafez') }}">ورود به دیوان حافظ ←</a>
+    </div>
+</section>
+{% endblock %}

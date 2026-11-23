@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}فال حافظ | باغ راز و نیاز{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <span class="section-symbol">❀</span>
+    <h1>خلوت با خواجه شیراز</h1>
+    <p>دلت را آرام کن، نیت کن و به حافظ بسپار.</p>
+</section>
+
+<div class="steps">
+    <span class="done">۱. مشخصات</span>
+    <span class="done">۲. تأیید اطلاعات</span>
+    <span class="current">۳. فال حافظ</span>
+</div>
+
+<section class="panel fortune-panel">
+    <div class="fortune-top">✦ دیوان خواجه شمس‌الدین محمد حافظ ✦</div>
+
+    {% if fal %}
+        <div class="fortune-label">غزل امروز برای شما</div>
+        <div class="poem">{{ fal.poem }}</div>
+        <div class="gold-line"></div>
+
+        <h2 class="meaning-title">تعبیر فال شما</h2>
+        <div class="meaning">{{ fal.meaning }}</div>
+
+        <p class="fortune-note">امید که دلت روشن و روزگارت خرم باشد.</p>
+    {% else %}
+        <div class="empty-fortune">
+            <div class="large-flower">❀</div>
+            <h2>هنوز فالی نگرفته‌ای</h2>
+            <p>چشمانت را لحظه‌ای ببند و نیت کن...</p>
+        </div>
+    {% endif %}
+
+    <form method="post" action="{{ url_for('draw') }}" class="center-actions">
+        <button class="btn btn-gold" type="submit">
+            {{ 'گرفتن فال دوباره' if fal else 'نیت کردم؛ فال بگیر' }}
+        </button>
+    </form>
+
+    <div class="center-actions">
+        <a class="btn btn-secondary" href="{{ url_for('details') }}">بازگشت به مشخصات</a>
+        <button class="btn btn-secondary" type="button" onclick="window.print()">چاپ فال</button>
+    </div>
+</section>
+{% endblock %}
