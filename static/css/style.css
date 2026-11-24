@@ -1,322 +1,408 @@
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
-
-:root {
-    --green: #123c32;
-    --green-light: #1b5947;
-    --turquoise: #287f80;
-    --gold: #c6a15b;
-    --gold-light: #e4cc91;
-    --cream: #f6f0df;
-    --paper: #fffdf6;
-    --ink: #283b32;
-    --muted: #7a8174;
-    --border: #e8dcc0;
-}
+/* Persian Garden - Hafez Website */
 
 * {
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     margin: 0;
     min-height: 100vh;
+    font-family: Tahoma, sans-serif;
+    color: #25483c;
+
     background:
-        radial-gradient(ellipse at 10% 15%, #dce8d8 0, transparent 35%),
-        radial-gradient(ellipse at 90% 80%, #e9ddbd 0, transparent 35%),
-        var(--cream);
-    color: var(--ink);
-    font-family: 'Vazirmatn', Tahoma, sans-serif;
+        linear-gradient(
+            rgba(12, 45, 36, 0.12),
+            rgba(12, 45, 36, 0.18)
+        ),
+        url("/static/images/persian-garden.png")
+        center center / cover no-repeat fixed;
 }
 
-a {
-    text-decoration: none;
+/* Main content */
+.container,
+main,
+.page-container {
+    width: min(92%, 850px);
+    margin: 35px auto;
 }
 
-.top-pattern {
-    height: 7px;
-    background: repeating-linear-gradient(
-        90deg,
-        var(--gold) 0 18px,
-        var(--turquoise) 18px 36px,
-        var(--green) 36px 54px
-    );
+/* Elegant Persian cards */
+.card,
+.form-container,
+.content-box {
+    background: rgba(255, 249, 232, 0.88);
+    border: 2px solid rgba(195, 157, 91, 0.9);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.20);
+    backdrop-filter: blur(7px);
 }
 
-.navbar {
-    min-height: 72px;
-    max-width: 1180px;
-    margin: auto;
-    padding: 12px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--green);
-    font-weight: 800;
-    font-size: 17px;
-}
-
-.brand-icon {
-    color: var(--gold);
-    font-size: 30px;
-}
-
-.nav-link {
-    color: var(--green-light);
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.container {
-    width: min(1080px, calc(100% - 32px));
-    margin: 30px auto 65px;
-}
-
-.hero {
-    position: relative;
-    overflow: hidden;
-    min-height: 570px;
-    border: 5px double var(--gold);
-    border-radius: 5px 70px 5px 70px;
-    background:
-        radial-gradient(ellipse at center, #27644d 0%, #174737 50%, #0d3029 100%);
-    box-shadow: 0 25px 60px #173c302b;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 45px 24px;
-    color: white;
+/* Headings */
+h1, h2, h3 {
+    color: #176052;
     text-align: center;
 }
 
-.hero::before,
-.hero::after {
-    content: "❋";
-    position: absolute;
-    color: #d3b66e;
-    font-size: 100px;
-    opacity: .14;
+/* Text */
+p, label {
+    color: #55452f;
+    line-height: 1.9;
 }
 
-.hero::before {
-    top: 15px;
-    right: 20px;
-}
-
-.hero::after {
-    bottom: 15px;
-    left: 20px;
-}
-
-.hero-decoration {
-    position: absolute;
-    width: 370px;
-    height: 370px;
-    border: 1px solid #d6b96d42;
-    border-radius: 50%;
-    box-shadow:
-        0 0 0 25px #d6b96d0b,
-        0 0 0 50px #d6b96d0b;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 670px;
-}
-
-.eyebrow {
-    color: var(--gold-light);
-    font-size: 14px;
-    letter-spacing: .3px;
-}
-
-.hero h1 {
-    margin: 18px 0;
-    font-size: clamp(32px, 6vw, 55px);
-    font-weight: 800;
-    color: #f5e6bc;
-}
-
-.gold-line {
-    width: 105px;
-    height: 2px;
-    margin: 20px auto;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-}
-
-.hero-verse {
-    font-size: clamp(17px, 3vw, 23px);
-    line-height: 2.2;
-    color: #f4e9ce;
-}
-
-.hero-description {
-    max-width: 500px;
-    margin: 25px auto;
-    color: #d8e2d7;
-    font-size: 14px;
-    line-height: 2.3;
-}
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    min-height: 47px;
-    padding: 11px 23px;
-    border: 0;
-    border-radius: 5px 18px 5px 18px;
+/* Form fields */
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 13px;
+    margin: 8px 0 16px;
+    border: 1px solid #c6a66b;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.94);
+    color: #29483d;
     font-family: inherit;
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: .25s ease;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 9px 20px #0002;
-}
-
-.btn-gold {
-    color: #243a2c;
-    background: linear-gradient(135deg, #e8d29c, #b68c43);
-}
-
-.btn-green {
-    color: white;
-    background: linear-gradient(135deg, #286b53, #123c32);
-}
-
-.btn-secondary {
-    color: var(--green);
-    background: #e9e3d2;
-}
-
-.hero-note {
-    margin-top: 23px;
-    color: #c8b67e;
-    font-size: 12px;
-}
-
-.garden-intro {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    margin-top: 30px;
-}
-
-.intro-item {
-    padding: 27px 15px;
-    text-align: center;
-    background: #fffdf5d9;
-    border: 1px solid var(--border);
-    border-radius: 5px 28px;
-}
-
-.intro-item > span {
-    font-size: 32px;
-    color: var(--gold);
-}
-
-.intro-item h3 {
-    color: var(--green);
-    margin: 8px 0;
     font-size: 16px;
 }
 
-.intro-item p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 12px;
+/* Buttons */
+button,
+.btn {
+    display: inline-block;
+    padding: 13px 24px;
+    border: 1px solid #c9a45d;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #176052, #238477);
+    color: #fff;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.25s;
 }
 
-.page-heading {
+button:hover,
+.btn:hover {
+    background: #bd9551;
+    color: #fff;
+}
+
+/* Links */
+a {
+    color: #176052;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    body {
+        background-attachment: scroll;
+    }
+
+    .container,
+    main,
+    .page-container {
+        width: 94%;
+        margin: 18px auto;
+    }
+
+    .card,
+    .form-container,
+    .content-box {
+        padding: 17px;
+        border-radius: 16px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+}
+
+/* Readable Persian Garden - Homepage improvements */
+
+/* Navigation */
+.navbar {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 15px 5%;
+    background: rgba(255, 249, 232, 0.94);
+    border-bottom: 2px solid #c6a66b;
+    box-shadow: 0 4px 18px rgba(0,0,0,.16);
+}
+
+.brand {
+    color: #176052;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-link {
+    color: #176052;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 14px;
+    border-radius: 9px;
+    background: rgba(255,255,255,.75);
+}
+
+/* Main welcome panel */
+.hero {
+    position: relative;
+    width: 100%;
+    margin: 35px auto;
+    padding: 25px 12px;
     text-align: center;
-    margin: 35px 0 24px;
 }
 
-.section-symbol {
-    display: block;
-    color: var(--gold);
-    font-size: 42px;
+.hero-content {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 35px 28px;
+    background: rgba(255, 249, 232, 0.94);
+    border: 2px solid #c6a66b;
+    border-radius: 24px;
+    box-shadow: 0 12px 38px rgba(0,0,0,.25);
+    backdrop-filter: blur(9px);
+}
+
+.hero-content h1 {
+    color: #145b4b;
+    font-size: clamp(26px, 5vw, 40px);
+    line-height: 1.8;
+    margin: 12px 0;
+}
+
+.eyebrow {
+    color: #8a672e;
+    font-weight: bold;
+    line-height: 2;
+}
+
+.hero-verse {
+    color: #704d25;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 2.3;
+    margin: 22px 0;
+}
+
+.hero-description {
+    color: #3e493b;
+    font-size: 16px;
+    line-height: 2.3;
+    margin: 18px auto;
+}
+
+.hero-note {
+    color: #8a672e;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.gold-line {
+    width: 100px;
+    height: 3px;
+    margin: 12px auto;
+    background: #bd9551;
+    border-radius: 5px;
+}
+
+.hero-decoration {
+    color: #bd9551;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.btn-gold {
+    background: linear-gradient(135deg, #9a7137, #c49a51);
+    border-color: #8c672f;
+    color: white;
+    margin-top: 12px;
+}
+
+/* Three introduction cards */
+.garden-intro {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+    margin: 25px auto 40px;
+}
+
+.intro-item {
+    text-align: center;
+    padding: 22px 14px;
+    background: rgba(255, 249, 232, 0.94);
+    border: 1.5px solid #c6a66b;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.20);
+    backdrop-filter: blur(8px);
+}
+
+.intro-item > span {
+    color: #b58b43;
+    font-size: 27px;
+}
+
+.intro-item h3 {
+    color: #176052;
+    margin: 10px 0;
+}
+
+.intro-item p {
+    color: #55452f;
+    line-height: 2;
+    margin-bottom: 0;
+}
+
+/* Footer readability */
+.footer {
+    text-align: center;
+    padding: 22px 15px;
+    margin-top: 35px;
+    background: rgba(255, 249, 232, 0.94);
+    border-top: 2px solid #c6a66b;
+    color: #55452f;
+    line-height: 2;
+}
+
+.footer p,
+.footer span {
+    color: #55452f;
+}
+
+.footer-ornament {
+    color: #a77c38;
+    font-size: 22px;
+}
+
+/* Mobile layout */
+@media (max-width: 650px) {
+    .hero {
+        margin: 18px auto;
+        padding: 12px 0;
+    }
+
+    .hero-content {
+        padding: 24px 16px;
+        border-radius: 18px;
+    }
+
+    .hero-verse {
+        font-size: 15px;
+        line-height: 2.2;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .garden-intro {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 18px;
+    }
+
+    .intro-item {
+        padding: 17px;
+    }
+
+    .navbar {
+        padding: 13px 4%;
+    }
+}
+
+
+/* Profile page readability */
+.page-heading {
+    max-width: 850px;
+    margin: 25px auto;
+    padding: 22px 18px;
+    text-align: center;
+    background: rgba(255, 249, 232, 0.95);
+    border: 2px solid #c6a66b;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.20);
+    backdrop-filter: blur(8px);
 }
 
 .page-heading h1 {
-    color: var(--green);
-    font-size: 29px;
-    margin: 8px 0;
+    color: #176052;
+    line-height: 1.8;
 }
 
 .page-heading p {
-    color: var(--muted);
-    font-size: 14px;
+    color: #55452f;
+    line-height: 2;
+}
+
+.section-symbol {
+    color: #b58b43;
+    font-size: 28px;
 }
 
 .steps {
     display: flex;
     justify-content: center;
-    gap: 9px;
-    margin: 25px auto;
     flex-wrap: wrap;
+    gap: 10px;
+    max-width: 850px;
+    margin: 20px auto;
+    padding: 15px;
+    background: rgba(255, 249, 232, 0.94);
+    border: 1px solid #c6a66b;
+    border-radius: 15px;
 }
 
 .steps span {
-    background: #e9e4d5;
-    color: #888779;
-    border-radius: 4px 13px;
-    padding: 9px 18px;
-    font-size: 12px;
+    padding: 9px 14px;
+    color: #55452f;
+    background: rgba(255,255,255,.8);
+    border-radius: 9px;
+    font-size: 14px;
 }
 
 .steps .current {
     color: white;
-    background: var(--green-light);
-}
-
-.steps .done {
-    color: var(--green);
-    background: #d9e7d8;
+    background: #176052;
 }
 
 .panel {
-    max-width: 760px;
-    margin: 25px auto;
-    padding: 35px;
-    background: var(--paper);
-    border: 1px solid var(--border);
-    border-top: 4px solid var(--gold);
-    border-radius: 5px 32px;
-    box-shadow: 0 15px 45px #31432c12;
+    max-width: 850px;
+    margin: 25px auto 40px;
+    padding: 30px;
+    background: rgba(255, 249, 232, 0.97);
+    border: 2px solid #c6a66b;
+    border-radius: 22px;
+    box-shadow: 0 12px 35px rgba(0,0,0,.23);
+    backdrop-filter: blur(10px);
 }
 
 .panel h2 {
-    color: var(--green);
-    font-size: 21px;
-    margin: 0 0 8px;
+    color: #176052;
+    text-align: center;
+    margin-top: 0;
 }
 
 .panel-description {
-    color: var(--muted);
-    font-size: 12px;
-    margin-bottom: 25px;
+    color: #66543a;
+    text-align: center;
 }
 
 .form-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    margin-top: 22px;
+}
+
+.field {
+    min-width: 0;
 }
 
 .field.full {
@@ -325,209 +411,54 @@ a {
 
 .field label {
     display: block;
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: var(--green);
+    color: #354b3d;
+    font-weight: bold;
+    margin-bottom: 7px;
 }
 
-.field input,
-.field textarea {
+.panel input,
+.panel textarea {
     width: 100%;
+    background: rgba(255,255,255,.98);
+    border: 1px solid #c6a66b;
+    color: #263f34;
+    border-radius: 10px;
     padding: 13px;
-    border: 1px solid #ddd5c2;
-    border-radius: 5px 13px;
-    background: #fffefa;
-    color: var(--ink);
-    font-family: inherit;
-    font-size: 13px;
-    outline: none;
-    transition: .2s;
+    font-family: Tahoma, sans-serif;
+    font-size: 15px;
 }
 
-.field input:focus,
-.field textarea:focus {
-    border-color: var(--turquoise);
-    box-shadow: 0 0 0 3px #287f8018;
-}
-
-.field textarea {
+.panel textarea {
     min-height: 110px;
     resize: vertical;
 }
 
-.panel form > .btn {
-    margin-top: 25px;
+.panel input::placeholder,
+.panel textarea::placeholder {
+    color: #8a8172;
+}
+
+.panel .btn {
+    display: block;
+    margin: 22px auto 0;
+    min-width: 220px;
 }
 
 .error {
-    background: #fbe9e3;
-    color: #9a3d2d;
-    border-radius: 10px;
     padding: 12px;
-    margin-bottom: 20px;
-    font-size: 13px;
-}
-
-.details-list {
-    margin-top: 25px;
-}
-
-.detail-row {
-    display: flex;
-    gap: 20px;
-    justify-content: space-between;
-    padding: 15px 5px;
-    border-bottom: 1px solid var(--border);
-    font-size: 14px;
-}
-
-.detail-row span {
-    color: var(--muted);
-}
-
-.detail-row strong {
-    color: var(--green);
-    text-align: left;
-    overflow-wrap: anywhere;
-}
-
-.actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 25px;
-}
-
-.fortune-panel {
+    margin: 15px 0;
+    color: #842b24;
+    background: #fbe7e3;
+    border: 1px solid #d98c80;
+    border-radius: 10px;
     text-align: center;
-    background:
-        radial-gradient(ellipse at top, #fff9e9, transparent 70%),
-        var(--paper);
-}
-
-.fortune-top {
-    color: var(--gold);
-    font-size: 13px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border);
-}
-
-.fortune-label {
-    color: var(--turquoise);
-    margin-top: 25px;
-    font-weight: 700;
-    font-size: 14px;
-}
-
-.poem {
-    white-space: pre-line;
-    line-height: 2.5;
-    font-size: clamp(17px, 3vw, 22px);
-    color: #654d2d;
-    margin: 25px auto;
-    max-width: 580px;
-}
-
-.meaning-title {
-    margin-top: 30px !important;
-    color: var(--green) !important;
-}
-
-.meaning {
-    text-align: right;
-    padding: 19px 22px;
-    border-right: 4px solid var(--gold);
-    background: #f3eedf;
-    color: #53604f;
-    border-radius: 5px 15px;
-    line-height: 2.3;
-    font-size: 14px;
-}
-
-.fortune-note {
-    color: var(--muted);
-    font-size: 12px;
-    margin: 25px 0;
-}
-
-.empty-fortune {
-    padding: 35px 10px;
-}
-
-.large-flower {
-    color: var(--gold);
-    font-size: 65px;
-}
-
-.empty-fortune h2 {
-    margin-top: 10px;
-}
-
-.empty-fortune p {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.center-actions {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 18px;
-}
-
-.footer {
-    padding: 25px 15px 35px;
-    text-align: center;
-    color: var(--muted);
-    font-size: 12px;
-}
-
-.footer-ornament {
-    color: var(--gold);
-    font-size: 24px;
-}
-
-.footer p {
-    color: var(--green);
-    font-size: 15px;
 }
 
 @media (max-width: 600px) {
-    .navbar {
-        padding: 12px 5px;
-    }
-
-    .brand {
-        font-size: 14px;
-    }
-
-    .container {
-        margin-top: 15px;
-    }
-
-    .hero {
-        min-height: 510px;
-        border-radius: 5px 35px;
-        padding: 30px 17px;
-    }
-
-    .hero-verse {
-        line-height: 2.1;
-    }
-
-    .garden-intro {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-
-    .intro-item {
-        padding: 17px;
-    }
-
+    .page-heading,
     .panel {
-        padding: 22px 17px;
+        margin: 18px auto;
+        padding: 19px 15px;
     }
 
     .form-grid {
@@ -538,40 +469,284 @@ a {
         grid-column: auto;
     }
 
-    .page-heading h1 {
-        font-size: 23px;
+    .steps {
+        gap: 6px;
+        padding: 10px;
     }
 
-    .detail-row {
+    .steps span {
         font-size: 12px;
-    }
-
-    .actions .btn,
-    .center-actions .btn {
-        flex: 1;
+        padding: 8px;
     }
 }
 
-@media print {
-    body {
-        background: white;
-    }
 
-    .navbar,
-    .footer,
-    .steps,
-    .center-actions,
-    .top-pattern {
-        display: none !important;
-    }
+/* Profile page readability */
+.page-heading {
+    max-width: 850px;
+    margin: 25px auto;
+    padding: 22px 18px;
+    text-align: center;
+    background: rgba(255, 249, 232, 0.95);
+    border: 2px solid #c6a66b;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.20);
+    backdrop-filter: blur(8px);
+}
 
-    .container {
-        width: 100%;
-        margin: 0;
-    }
+.page-heading h1 {
+    color: #176052;
+    line-height: 1.8;
+}
 
+.page-heading p {
+    color: #55452f;
+    line-height: 2;
+}
+
+.section-symbol {
+    color: #b58b43;
+    font-size: 28px;
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 850px;
+    margin: 20px auto;
+    padding: 15px;
+    background: rgba(255, 249, 232, 0.94);
+    border: 1px solid #c6a66b;
+    border-radius: 15px;
+}
+
+.steps span {
+    padding: 9px 14px;
+    color: #55452f;
+    background: rgba(255,255,255,.8);
+    border-radius: 9px;
+    font-size: 14px;
+}
+
+.steps .current {
+    color: white;
+    background: #176052;
+}
+
+.panel {
+    max-width: 850px;
+    margin: 25px auto 40px;
+    padding: 30px;
+    background: rgba(255, 249, 232, 0.97);
+    border: 2px solid #c6a66b;
+    border-radius: 22px;
+    box-shadow: 0 12px 35px rgba(0,0,0,.23);
+    backdrop-filter: blur(10px);
+}
+
+.panel h2 {
+    color: #176052;
+    text-align: center;
+    margin-top: 0;
+}
+
+.panel-description {
+    color: #66543a;
+    text-align: center;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    margin-top: 22px;
+}
+
+.field {
+    min-width: 0;
+}
+
+.field.full {
+    grid-column: 1 / -1;
+}
+
+.field label {
+    display: block;
+    color: #354b3d;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.panel input,
+.panel textarea {
+    width: 100%;
+    background: rgba(255,255,255,.98);
+    border: 1px solid #c6a66b;
+    color: #263f34;
+    border-radius: 10px;
+    padding: 13px;
+    font-family: Tahoma, sans-serif;
+    font-size: 15px;
+}
+
+.panel textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.panel input::placeholder,
+.panel textarea::placeholder {
+    color: #8a8172;
+}
+
+.panel .btn {
+    display: block;
+    margin: 22px auto 0;
+    min-width: 220px;
+}
+
+.error {
+    padding: 12px;
+    margin: 15px 0;
+    color: #842b24;
+    background: #fbe7e3;
+    border: 1px solid #d98c80;
+    border-radius: 10px;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .page-heading,
     .panel {
-        box-shadow: none;
-        border: 1px solid #ccc;
+        margin: 18px auto;
+        padding: 19px 15px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .field.full {
+        grid-column: auto;
+    }
+
+    .steps {
+        gap: 6px;
+        padding: 10px;
+    }
+
+    .steps span {
+        font-size: 12px;
+        padding: 8px;
     }
 }
+
+
+/* Balanced transparent Persian garden panels */
+.hero-content {
+    background: rgba(255, 249, 232, 0.84);
+    backdrop-filter: blur(5px);
+}
+
+.garden-intro .intro-item {
+    background: rgba(255, 249, 232, 0.84);
+    backdrop-filter: blur(5px);
+}
+
+.page-heading {
+    background: rgba(255, 249, 232, 0.84);
+    backdrop-filter: blur(5px);
+}
+
+.steps {
+    background: rgba(255, 249, 232, 0.82);
+    backdrop-filter: blur(5px);
+}
+
+.panel {
+    background: rgba(255, 249, 232, 0.86);
+    backdrop-filter: blur(6px);
+}
+
+.footer {
+    background: rgba(255, 249, 232, 0.84);
+    backdrop-filter: blur(5px);
+}
+
+/* Keep text crisp and readable */
+.hero-content h1,
+.page-heading h1,
+.panel h2,
+.intro-item h3 {
+    color: #145b4b;
+    text-shadow: 0 1px 1px rgba(255,255,255,.5);
+}
+
+.hero-verse,
+.hero-description,
+.page-heading p,
+.panel p,
+.intro-item p,
+.footer p {
+    color: #493d2d;
+}
+
+.panel input,
+.panel textarea {
+    background: rgba(255, 255, 255, 0.94);
+}
+
+
+/* More transparent garden panels */
+.hero-content,
+.page-heading,
+.panel {
+    background: rgba(255, 249, 232, 0.68);
+    backdrop-filter: blur(4px);
+}
+
+.garden-intro .intro-item,
+.steps,
+.footer {
+    background: rgba(255, 249, 232, 0.65);
+    backdrop-filter: blur(4px);
+}
+
+/* Keep form fields readable */
+.panel input,
+.panel textarea {
+    background: rgba(255, 255, 255, 0.90);
+}
+
+
+/* Higher transparency */
+.hero-content,
+.page-heading,
+.panel {
+    background: rgba(255, 249, 232, 0.55);
+    backdrop-filter: blur(3px);
+}
+
+.garden-intro .intro-item,
+.steps,
+.footer {
+    background: rgba(255, 249, 232, 0.52);
+    backdrop-filter: blur(3px);
+}
+
+
+/* Panel background opacity: 50% */
+.hero-content,
+.page-heading,
+.panel {
+    background: rgba(255, 249, 232, 0.50);
+}
+
+.garden-intro .intro-item,
+.steps,
+.footer {
+    background: rgba(255, 249, 232, 0.50);
+}
+
